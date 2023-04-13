@@ -138,6 +138,16 @@ public class Model extends Observable {
      * */
     public static boolean emptySpaceExists(Board b) {
         // TODO: Fill in this function.
+        //return false;
+        for(int row = 0; row < b.size(); row++){
+            for(int col = 0; col < b.size(); col++){
+                if (b.tile(col,row) == null){
+                    return true;
+                }
+
+            }
+
+        }
         return false;
     }
 
@@ -148,6 +158,22 @@ public class Model extends Observable {
      */
     public static boolean maxTileExists(Board b) {
         // TODO: Fill in this function.
+
+        //return false;
+        for(int row = 0; row < b.size(); row++){
+            for(int col = 0; col < b.size(); col++){
+                Tile temp = b.tile(col,row);
+                if (temp == null){
+                    continue;
+                }
+                int x = temp.value();
+                if (x == MAX_PIECE){
+                    return true;
+                }
+
+            }
+
+        }
         return false;
     }
 
@@ -159,8 +185,63 @@ public class Model extends Observable {
      */
     public static boolean atLeastOneMoveExists(Board b) {
         // TODO: Fill in this function.
-        return false;
-    }
+
+        for(int row = 0; row < b.size(); row++) {
+            for (int col = 0; col < b.size(); col++) {
+                if (b.tile(col,row) == null){
+                    return true;
+                }
+                int b_value = b.tile(col,row).value();
+                if(row == 0 && col == 0){
+                    if (b_value == b.tile(col+1,row).value() || b_value == b.tile(col,row+1).value()){
+                        return true;
+                }
+
+                } else if (row == 0 && col == b.size() - 1) {
+                    if (b_value == b.tile(col-1,row).value() || b_value == b.tile(col,row+1).value()){
+                        return true;
+                    }
+
+                } else if (row == b.size() - 1 && col == 0) {
+                    if (b_value == b.tile(col+1,row).value() || b_value == b.tile(col,row-1).value()){
+                        return true;
+                    }
+
+                } else if ( row == b.size() - 1 && col == b.size() - 1) {
+                    if (b_value == b.tile(col-1,row).value() || b_value == b.tile(col,row-1).value()){
+                        return true;
+                    }
+                } else if (row == 0 && col > 0 && col < b.size()){
+                    if(b_value == b.tile(col+1,row).value() || b_value == b.tile(col,row+1).value() || b_value == b.tile(col-1,row).value()){
+                        return true;
+                    }
+                } else if (col == 0 && row > 0 && row < b.size()){
+                    if(b_value == b.tile(col+1,row).value() || b_value == b.tile(col,row+1).value() || b_value == b.tile(col,row-1).value()){
+                        return true;
+                    }
+                } else if(col == b.size() - 1 && row > 0 && row < b.size()){
+                    if (b_value == b.tile(col,row+1).value() || b_value == b.tile(col,row-1).value() || b_value == b.tile(col-1,row).value()){
+                        return true;
+                    }
+                } else if (row == b.size() - 1 && col > 0 && col < b.size()) {
+                    if (b_value == b.tile(col+1,row).value() || b_value == b.tile(col-1,row).value() || b_value == b.tile(col,row-1).value()){
+                        return true;
+                    }
+                } else{
+                    if (b_value == b.tile(col+1,row).value() || b_value == b.tile(col-1,row).value() || b_value == b.tile(col,row+1).value() || b_value == b.tile(col,row-1).value()){
+                        return true;
+                    }
+                }
+
+            }
+
+            }
+
+
+            return false;
+        }
+
+
 
 
     @Override
