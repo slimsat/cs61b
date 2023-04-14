@@ -22,9 +22,9 @@ public class TestAtLeastOneMoveExists {
      * see the TestEmptySpace class. */
     public void testEmptySpace() {
         int[][] rawVals = new int[][] {
-                {0, 0, 4, 0},
-                {0, 0, 0, 0},
-                {0, 2, 0, 0},
+                {4, 16, 2, 0},
+                {2, 16, 0, 0},
+                {4, 0, 0, 0},
                 {0, 0, 0, 0},
         };
 
