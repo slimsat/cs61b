@@ -42,13 +42,14 @@ public class TestBuggyAList {
                 int randVal = StdRandom.uniform(0, 100);
                 L1.addLast(randVal);
                 L2.addLast(randVal);
-                System.out.println("addLast(" + randVal + ")");
+                //System.out.println("addLast(" + randVal + ")");
+
             } else if (operationNumber == 1) {
                 // size
                 int size1 = L1.size();
                 int size2 = L2.size();
-                System.out.println("L1.size: " + size1 );
-                System.out.println("L2.size: " + size2 );
+                //System.out.println("L1.size: " + size1 );
+                //System.out.println("L2.size: " + size2 );
                 assertEquals(L1.size(), L2.size());
 
             }else if (operationNumber == 2) {
@@ -57,8 +58,8 @@ public class TestBuggyAList {
                 if(L1.size() > 0 && L2.size() > 0){
                     int getlast1 = L1.getLast();
                     int getlast2 = L1.getLast();
-                    System.out.println("L1.getLast( " + getlast1 +")");
-                    System.out.println("L2.getLast( " + getlast2 +")");
+                    //System.out.println("L1.getLast( " + getlast1 +")");
+                    //System.out.println("L2.getLast( " + getlast2 +")");
                     assertEquals(L1.getLast(), L2.getLast());
                 }
             } else if (operationNumber == 3) {
@@ -66,8 +67,8 @@ public class TestBuggyAList {
                 if(L1.size() > 1 && L2.size() > 1){
                     int removelast1 = L1.removeLast();
                     int removelast2 = L2.removeLast();
-                    System.out.println("L1.removeLast( " + removelast1 +")");
-                    System.out.println("L2.removeLast( " + removelast2 +")");
+                    //System.out.println("L1.removeLast( " + removelast1 +")");
+                    //System.out.println("L2.removeLast( " + removelast2 +")");
                     assertEquals(L1.removeLast(), L2.removeLast());
                 }
             }
